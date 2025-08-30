@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use PhpParser\Builder\Function_;
 use PhpParser\Node\Expr\FuncCall;
 
 class Report extends Model
-{
+{   
+    use SoftDeletes;
     protected $fillable = [
         'code',
         'resident_id',

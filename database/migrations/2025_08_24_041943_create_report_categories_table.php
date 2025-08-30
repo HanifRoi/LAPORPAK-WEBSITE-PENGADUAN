@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('report_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-
-
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
