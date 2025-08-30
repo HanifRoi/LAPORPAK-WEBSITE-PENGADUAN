@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLoginRequest;
 use App\Interface\AuthRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,10 +21,13 @@ class LoginController extends Controller
     public function store(StoreLoginRequest $request){
         $credentials = $request->validated();
         if($this->authRepository->login($credentials)){
-            dd('Login Berhasil');
+            if(Auth::user()->hasRole('admin')){
+                return redirect()->route('admin.dashboard');
+            }
+            
         }
 
-        return redirect()->route('auth.login')->withErrors([
+        return redirect()->route('login')->withErrors([
             'email' => "Email atau Password salah",
             
         ]);
