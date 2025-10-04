@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function __construct(AuthRepositoryInterface $authRepository){
         $this->authRepository = $authRepository;
     }
-    public function index(){
+    public function index(){ 
         return view('pages.auth.login'); 
     }
     public function store(StoreLoginRequest $request){
@@ -32,5 +32,10 @@ class LoginController extends Controller
             
         ]);
 
+    }
+
+    public function logout(){
+        $this ->authRepository->logout();
+        return redirect()->route('login');
     }
 }
