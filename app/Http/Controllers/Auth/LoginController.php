@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLoginRequest;
-use App\Interface\AuthRepositoryInterface;
+use App\Interfaces\AuthRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +26,8 @@ class LoginController extends Controller
             }
             
         }
+
+        dd("Login sebagai user berhasil");
 
         return redirect()->route('login')->withErrors([
             'email' => "Email atau Password salah",
