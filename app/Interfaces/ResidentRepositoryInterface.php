@@ -2,8 +2,6 @@
 
 namespace App\Interfaces;
 
-use PhpParser\Builder\Function_;
-use PhpParser\Node\Expr\FuncCall;
 
 interface ResidentRepositoryInterface{
     public function getAllResident();
