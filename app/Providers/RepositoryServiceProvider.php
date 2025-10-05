@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Interface\AuthRepositoryInterface;
+use App\Interfaces\AuthRepositoryInterface;
 use App\Interfaces\ResidentRepositoryInterface;
 use App\Models\Resident;
 use App\Repositories\AuthRepository;
